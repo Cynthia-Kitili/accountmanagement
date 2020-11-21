@@ -37,7 +37,7 @@ class Testuser(unittest.TestCase):
         test_save_multiple_user to check if we can save multiple user objects to our user_list.
         '''
         self.new_user.save_user()
-        test_user = User("Test","user12")
+        test_user = User("Test","fox12345")
 
         test_user.save_user()
         self.assertEqual(len(User.user_list),2)
@@ -47,7 +47,7 @@ class Testuser(unittest.TestCase):
         test_delete_user to test if we can remove a user from our user list.
         '''
         self.new_user.save_user()
-        test_user = User("Test","user12")
+        test_user = User("Test","fox12345")
 
         test_user.save_user()
 
@@ -59,7 +59,7 @@ class Testuser(unittest.TestCase):
         test to check if we can find a contact by username and display information"
         '''
         self.new_user.save_user()
-        test_user = User("Test","user12")
+        test_user = User("Test","fox12345")
 
         test_user.save_user()
 
