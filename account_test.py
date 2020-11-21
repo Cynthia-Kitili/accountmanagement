@@ -52,7 +52,7 @@ class Testuser(unittest.TestCase):
         test_user.save_user()
 
         self.new_user.delete_user()
-        self.assetEqual(len(User.user_list),1)    
+        self.assertEqual(len(User.user_list),1)    
 
 
 
