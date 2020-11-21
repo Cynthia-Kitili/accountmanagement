@@ -1,4 +1,4 @@
-class User:
+class user:
     """
     Class that generates new instances of Users.
     """
@@ -12,4 +12,6 @@ class User:
             password: New User password.
     
         '''
+        self.username= username
+        self.password= password
            
