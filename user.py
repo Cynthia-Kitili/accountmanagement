@@ -1,9 +1,9 @@
-class user:
+class User:
     """
     Class that generates new instances of Users.
     """
-
-    def _init_(self, username, password):
+    user_list= []
+    def __init__(self, username, password):
         '''
         Method that helps us define properties for our objects.
         
@@ -12,6 +12,8 @@ class user:
             password: New User password.
     
         '''
-        self.username= username
-        self.password= password
+        self.username = username
+        self.password = password
+     
+        
            
