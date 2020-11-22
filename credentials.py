@@ -30,6 +30,15 @@ class Credentials:
         '''
         Credentials.credentials_list.remove(self) 
 
+    @classmethod
+    def find_by_account(cls,account):
+        '''
+        Method that takes in an acount and returns credentials that matches that account.
+        '''
+        for credentials in cls.credentials_list:
+            if credentials.account==account:
+                return credentials    
+
 
 
     
