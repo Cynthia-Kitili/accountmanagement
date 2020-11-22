@@ -16,8 +16,12 @@ class Credentials:
 
         self.account= account
         self.name=name
-        self.password
-        
+        self.password=password
+
+    
+    
+
+
 
     
 

@@ -77,6 +77,23 @@ class TestCredentials(unittest.TestCase):
         '''
         self.new_credentials=Credentials("Gmail","CindyNyambu","gitz254")
 
+    def test_init(self):
+        '''
+        test_init test case to test if the object is initialized properly
+        '''
+        self.assertEqual(self.new_credentials.account,"Gmail")
+        self.assertEqual(self.new_credentials.name,"CindyNyambu")
+        self.assertEqual(self.new_credentials.password,"gitz254")
+
+    def test_save_credentials(self):
+        '''
+        test case to test if the credentrials object is saved into the credentials list.
+        '''
+        self.new_credentials.save_credentials()
+        self.assertEqual(len(Credentials.credentials_list),1)        
+
+
+
 
 
 
