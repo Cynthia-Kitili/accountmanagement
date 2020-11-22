@@ -90,9 +90,17 @@ class TestCredentials(unittest.TestCase):
         test case to test if the credentrials object is saved into the credentials list.
         '''
         self.new_credentials.save_credentials()
-        self.assertEqual(len(Credentials.credentials_list) ,1)        
+        self.assertEqual(len(Credentials.credentials_list) ,1)   
 
+    def test_save_multiple_credentials(self):
+        '''
+        Method to check if we can save multipe credentials objects to our credentials list.
+        '''
+        self.new_credentials.save_credentials()
+        test_credentials= Credentials("Test","user","gitz254")   
 
+        test_credentials.save_credentials()
+        self.assertEqual(len(Credentials.credentials_list),2)
 
 
 
