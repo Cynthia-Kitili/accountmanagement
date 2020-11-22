@@ -1,5 +1,6 @@
 import unittest
 from user import User
+from credentials import Credentials
 
 class Testuser(unittest.TestCase):
     '''
@@ -65,6 +66,17 @@ class Testuser(unittest.TestCase):
 
         found_user = User.find_by_username("Cindy")   
         self.assertEqual(found_user.password,test_user.password)
+
+class TestCredentials(unittest.TestCase):
+    '''
+    Test class that defines test cases for the credentials class behaviours.
+    '''
+    def setUp(self):
+        '''
+        Set up method to run before each test cases.
+        '''
+        self.new_credentials=Credentials("Gmail","CindyNyambu","gitz254")
+
 
 
 
