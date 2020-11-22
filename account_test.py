@@ -103,7 +103,7 @@ class TestCredentials(unittest.TestCase):
         Method to check if we can save multipe credentials objects to our credentials list.
         '''
         self.new_credentials.save_credentials()
-        test_credentials= Credentials("Test","user","gitz254")   
+        test_credentials= Credentials("Instagram","user","gitz254")   
 
         test_credentials.save_credentials()
         self.assertEqual(len(Credentials.credentials_list),2)
@@ -113,12 +113,26 @@ class TestCredentials(unittest.TestCase):
         To test if we can remove a user's credentials from our credentials list.
         '''
         self.new_credentials.save_credentials()
-        test_credentials= Credentials("Test","user","gitz254")
+        test_credentials= Credentials("Instagram","user","gitz254")
 
         test_credentials.save_credentials()
 
         self.new_credentials.delete_credentials()
         self.assertEqual(len(Credentials.credentials_list),1)    
+
+    def test_find_credentials_by_account(self):
+        '''
+        To check if we can find credentials by account and didplay information.
+        '''
+        self.new_credentials.save_credentials()
+        test_credentials= Credentials("Instagram","user","gitz254")
+
+        test_credentials.save_credentials()
+        found_credentials= Credentials.find_by_account("Instagram")
+
+        self.assertEqual(found_credentials.password, test_credentials.password)
+
+
 
 
 
