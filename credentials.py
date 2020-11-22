@@ -18,8 +18,11 @@ class Credentials:
         self.name=name
         self.password=password
 
-    
-    
+    def save_credentials(self):
+        '''
+        saves credentials objects into credentials list.
+        '''
+        Credentials.credentials_list.append(self)
 
 
 
