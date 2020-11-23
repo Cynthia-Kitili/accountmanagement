@@ -2,9 +2,9 @@
 from user import user
 from credentials import Credentials
 
-def create_new_user(username,password):
+def create_user(username,password):
     '''
-    Function to create a new user with a username and password
+    Function to create a new user 
     '''
     new_user = User(username,password)
     return new_user
@@ -23,13 +23,13 @@ def display_user():
 
 def login_user(username,password):
     """
-    function that checks whether a user exist and then login the user in.
+    Function that checks whether a user exist and then login the user.
     """
   
     confirm_user = Credentials.verify_user(username,password)
     return confirm_user  
 
-def create_new_credentials(account,userName,password):
+def create_credentials(account,userName,password):
     """
     Function that creates new credentials for a given user account
     """
@@ -44,18 +44,99 @@ def save_credentials(credentials):
 
 def display_account_details():
     """
-    Function that returns all the saved credential.
+    Function that returns all saved credentials.
     """
     return Credentials.display_credentials()  
 
 def find_credentials(account):
     """
-    Function that finds a Credentials by an account name and returns the Credentials that belong to that account
+    Function that finds a Credential by an account name and returns the Credentials that belong to that account
     """
-    return Credentials.find_credential(account)    
+    return Credentials.find__by_account(account)    
+
+def check_credendtials(account):
+    """
+    Function that checks if a Credentials exists with that account name and return true or false
+    """
+    return Credentials.if_credentials_exist(account)    
+
+def generate_Password():
+    '''
+    Function that generates a random password for the user.
+    '''
+    auto_password=Credentials.generatePassword()
+    return auto_password    
+
+def copy_password(account):
+    """
+    Function that copies the password using the pyperclip framework.
+    """
+    return Credentials.copy_password(account)    
 
 def delete_credentials(credentials):
     """
-    Function to delete a Credentials from credentials list
+    Function that delete a Credentials from credentials list
     """
-    credentials.delete_credentials()      
+    credentials.delete_credentials()   
+
+def access():
+    print("Hello Welcome to your accounts access application. What is your name?")
+        your_name=input()
+
+        print(f"Hello {your_name}.What would you like to do?")
+        print('\n')
+
+        while True:
+            print("Use these short codes: ca- create account, ha- have account")
+
+            short_code = input().lower()
+            
+            if short_code == "ca":
+                print("Sign up to create new account")
+                print("-"*100)
+                username = input ("Username:")
+                while True:
+                    print("Use these password short codes: gp-generate password, tp-type password ")
+                    password_short_code == input().lower().strip()
+                    if password_short_code == "tp":
+                        password = input ("Password:\n")
+                        break
+                    elif password_short_code == "gp":
+                        password= generate_Password()    
+                        break
+                    else:
+                        print("Invalid password, try again")    
+                save_user(create_user(username, password))   
+                print("-"*100)
+                print(f"Hello {username}, Your account has been created succesfully! Your password is : {password}")     
+                print("-"*100)
+        elif short_code == "ha":
+            print("-"*100)
+            print("Enter your Username and your Password to log in:")
+            print('-' * 100)
+            username = input("Username: ")
+            password = input("password: ")
+            login = login_user(username,password)
+            if login_user == login:
+                print(f"Hello {username}.Welcome to your account")  
+                print('\n')
+        while True:
+            print("Use these short codes: cc- Create new Credential, dc- Display Credentials, gp- generate password d-Delete, e-Exit application  ")
+            short_code= input().lower().strip()
+            if short_code == "cc":
+                print("Create New Credential")
+                print("-"*50)
+                print("Enter Account name :")
+                account = input().lower()
+                print("Enter Account username:")
+                name = input()
+
+
+
+
+
+
+
+
+
+
