@@ -130,6 +130,21 @@ def access():
                 account = input().lower()
                 print("Enter Account username:")
                 name = input()
+                while True:
+                    print(" tp -Type pasword if you already have an account:\n gp -Generate Password")
+                    password_short_code = input().lower().strip()
+                    if password_short_code == 'tp':
+                        password = input("Enter Your Own Password:\n")
+                        break
+                    elif password_short_code == 'gp':
+                        password = generate_Password()
+                        break
+                    else:
+                    print("Invalid password, try again")
+                save_credentials(create_credentials(account,name,password))
+                print('\n')
+                print(f"Account Credential for: {account} with Username: {name} and Password:{password} has been created succesfully!")
+                print('\n')
 
 
 
