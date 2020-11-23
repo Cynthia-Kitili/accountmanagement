@@ -39,7 +39,19 @@ class Credentials:
             if credentials.account==account:
                 return credentials    
 
+    def display_credentials(cls):
+        '''
+        method that returns the credentials list
+        '''
+        return cls.credentials_list
 
+    def credentials_exist(cls,number):
+        '''
+        Method that checks if a credntilas exists from the credentials list.
+        '''
+        for credentials in cls.credentials_list:
+            if credentials.account == account:
+                    return True
 
-    
+        return False
 

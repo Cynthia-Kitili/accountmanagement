@@ -66,6 +66,24 @@ class Testuser(unittest.TestCase):
 
         found_user = User.find_by_username("Cindy")   
         self.assertEqual(found_user.password,test_user.password)
+    
+    def test_user_exists(self):
+        '''
+        to check if we return a boolean if we can't find the user.
+        '''
+        self.new_user.save_user()
+        test_user = User("Test","fox12345")
+
+        test_user.save_user()
+
+        user_exists= User.user_exist("Test") 
+        self.assertTrue(user_exists)
+
+    def test_display_all_user(self):
+        '''
+        method that returns a list of all users saved.
+        '''
+        self.assertEqual(User.display_user(''), User.user_list)    
 
 class TestCredentials(unittest.TestCase):
     '''
@@ -132,8 +150,23 @@ class TestCredentials(unittest.TestCase):
 
         self.assertEqual(found_credentials.password, test_credentials.password)
 
+    def test_display_all_credentials(self):
+        '''
+        method that returns a list of all credentials saved.
+        '''
+        self.assertEqual(Credentials.display_credentials(), Credentials.credentials_list)
 
+    def test_credentials_exists(self):
+        '''
+        to check if we return a boolean if we can't find the credentials.
+        '''
+        self.new_credentials.save_credentials()
+        test_credentials = Credentials("Instagram","user","gitz254")
 
+        test_credentials.save_credentials()
+
+        credentials_exists= Credentials.credentials_exists("Instagram") 
+        self.assertTrue(credentials_exists)
 
 
 

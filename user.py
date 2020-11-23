@@ -37,6 +37,19 @@ class User:
                 return user  
 
     def display_user(cls):
-        return cls.user_list                  
+        '''
+        method that returns the user list
+        '''
+        return cls.user_list    
+
+    def user_exist(cls,number):
+        '''
+        Method that checks if a user exists from the user list.
+        '''
+        for user in cls.user_list:
+            if user.username == username:
+                    return True
+
+        return False                 
 
            
