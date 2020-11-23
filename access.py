@@ -27,4 +27,17 @@ def login_user(username,password):
     """
   
     confirm_user = Credentials.verify_user(username,password)
-    return confirm_user    
+    return confirm_user  
+
+def create_new_credentials(account,userName,password):
+    """
+    Function that creates new credentials for a given user account
+    """
+    new_credentials = Credentials(account,userName,password)
+    return new_credentials   
+
+def save_credentials(credentials):
+    """
+    Function to save Credentials to the credentials list
+    """
+    credentials. save_details()       
