@@ -168,7 +168,31 @@ def access():
                     print('-' * 50)
                 else:
                     print("That Credential does not exist")
-                    print('\n')      
+                    print('\n')   
+            elif short_code == "d":
+                print("Enter the Account name of the credentials you want to delete")
+                search_name = input().lower()
+                if find_credentials(search_name):
+                    search_credentials = find_credentials(search_name)
+                    print("_"*50)
+                    search_credentials.delete_credentials()
+                    print('\n')
+                    print(f"Your credentials for : {search_credentials.account} have been successfully deleted!!!")
+                    print('\n')
+                else:
+                   print("That Credential you want to delete does not exist.")
+            elif short_code == 'gp':
+                password = generate_Password()
+                print(f" {password} has been generated. ")
+            elif short_code == 'ex':
+                print("Thanks for using password manager application.")
+                break
+            else:
+                print("Please enter a valid input to continue")
+
+if __name__ == '__main__':
+    access()        
+
 
 
 
