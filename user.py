@@ -1,4 +1,6 @@
 import pyperclip
+import random
+import string
 
 class User:
     """
@@ -54,9 +56,26 @@ class User:
 
         return False  
 
-    def copy_passowrd(cls,username):
+    def copy_password(cls,username):
         user_found = User.find_by_username(username)
-        pyperclip.copy(user_found.email)
+        pyperclip.copy(user_found.password)
+
+    def verify_user(cls,username, password):
+        """
+        method to verify whether the user is in our user_list or not
+        """
+        a_user = ""
+        for user in User.user_list:
+            if(user.username == username and user.password == password):
+                    a_user == user.username
+        return a_user
+        
+    def generatePassword(stringLength=8):
+        """
+        Generate a random password string of letters and digits and special characters
+        """
+        password = string.ascii_uppercase + string.ascii_lowercase + string.digits + "~!@#$%^&*"
+        return ''.join(random.choice(password) for i in range(stringLength))        
                    
 
            
