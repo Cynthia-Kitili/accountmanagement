@@ -48,6 +48,12 @@ def display_account_details():
     """
     return Credentials.display_credentials()  
 
+def find_credentials(account):
+    """
+    Function that finds a Credentials by an account name and returns the Credentials that belong to that account
+    """
+    return Credentials.find_credential(account)    
+
 def delete_credentials(credentials):
     """
     Function to delete a Credentials from credentials list
