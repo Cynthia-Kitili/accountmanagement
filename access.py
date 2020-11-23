@@ -145,6 +145,18 @@ def access():
                 print('\n')
                 print(f"Account Credential for: {account} with Username: {name} and Password:{password} has been created succesfully!")
                 print('\n')
+            elif short_code == "dc":
+                if display_account_details():
+                    print("Below is a list of your acoounts: ")
+                 
+                    print('*' * 50)
+                    print('_'* 50)
+                    for account in display_account_details():
+                        print(f" Account:{account.account} \n Username:{username}\n Password:{password}")
+                        print('_'* 50)
+                    print('*' * 50)
+                else:
+                print("You don't have any credentials saved yet.")    
 
 
 
