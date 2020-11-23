@@ -156,7 +156,19 @@ def access():
                         print('_'* 50)
                     print('*' * 50)
                 else:
-                print("You don't have any credentials saved yet.")    
+                print("You don't have any credentials saved yet.")  
+            elif short_code == "fc":
+                print("Enter the Account Name you want to search for")
+                search_name = input().lower()
+                if find_credential(search_name):
+                    search_credentials = find_credentials(search_name)
+                    print(f"Account Name : {search_credentials.account}")
+                    print('-' * 50)
+                    print(f"User Name: {search_credentials.name} Password :{search_credentials.password}")
+                    print('-' * 50)
+                else:
+                    print("That Credential does not exist")
+                    print('\n')      
 
 
 
