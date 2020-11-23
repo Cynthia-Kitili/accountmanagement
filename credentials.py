@@ -45,7 +45,7 @@ class Credentials:
         '''
         return cls.credentials_list
 
-    def credentials_exist(cls,number):
+    def credentials_exist(cls,account):
         '''
         Method that checks if a credntilas exists from the credentials list.
         '''
@@ -55,3 +55,7 @@ class Credentials:
 
         return False
 
+    def copy_password(cls,account):
+        credentials_found = Credentials.find_by_account(account)
+        pyperclip.copy(credentials_found.email)
+ 

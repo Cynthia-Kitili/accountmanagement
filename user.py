@@ -1,3 +1,5 @@
+import pyperclip
+
 class User:
     """
     Class that generates new instances of Users.
@@ -42,7 +44,7 @@ class User:
         '''
         return cls.user_list    
 
-    def user_exist(cls,number):
+    def user_exist(cls,username):
         '''
         Method that checks if a user exists from the user list.
         '''
@@ -50,6 +52,11 @@ class User:
             if user.username == username:
                     return True
 
-        return False                 
+        return False  
+
+    def copy_passowrd(cls,username):
+        user_found = User.find_by_username(username)
+        pyperclip.copy(user_found.email)
+                   
 
            

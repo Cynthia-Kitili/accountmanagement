@@ -1,6 +1,7 @@
 import unittest
 from user import User
 from credentials import Credentials
+import pyperclip
 
 class Testuser(unittest.TestCase):
     '''
@@ -83,7 +84,18 @@ class Testuser(unittest.TestCase):
         '''
         method that returns a list of all users saved.
         '''
-        self.assertEqual(User.display_user(''), User.user_list)    
+        self.assertEqual(User.display_user(''), User.user_list) 
+
+    def test_copy_password(self):
+        '''
+        Test to confirm that we are copying the password  from a user 
+        '''
+
+        self.new_user.save_user()
+        User.copy_password("fox12345")
+
+        self.assertEqual(self.new_user.password,pyperclip.paste())
+       
 
 class TestCredentials(unittest.TestCase):
     '''
@@ -168,7 +180,15 @@ class TestCredentials(unittest.TestCase):
         credentials_exists= Credentials.credentials_exists("Instagram") 
         self.assertTrue(credentials_exists)
 
+    def test_copy_password(self):
+        '''
+        Test to confirm that we are copying the password  from  credentilas 
+        '''
 
+        self.new_credentials.save_credentials()
+        Credentials.copy_password("gitz254")
+
+        self.assertEqual(self.new_credentials.password,pyperclip.paste())
 
 if __name__ == '__main__':
     unittest.main()
