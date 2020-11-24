@@ -6,28 +6,26 @@ import pyperclip
 class TestUser(unittest.TestCase):
     """
     Test class that defines test cases for the Users class behaviours.
-    Args:
-    unittest.TestCase: TestCase class that helps in creating test cases.
     """
     def setUp(self):
         '''
         method to run each test
         '''
-        self.user = User("Preston", "press123")
+        self.user = User("Cynthia", "fox12345")
 
     def test_init(self):
         '''
-        check proper user initialization
+        Test to check proper user initialization
         '''
-        self.assertEqual(self.user.username, "Preston")
-        self.assertEqual(self.user.password, "press123")
+        self.assertEqual(self.user.username, "Cynthia")
+        self.assertEqual(self.user.password, "fox12345")
 
     def test_save_multiple_users(self):
         '''
         method to test multiple saved users
         '''
         self.user.saveUser()
-        test_user = User("Ray", "12345678") 
+        test_user = User("Victor", "gitz254") 
         test_user.saveUser()
 
         self.assertEqual(len(User.userList), 2)
@@ -45,7 +43,7 @@ class TestUser(unittest.TestCase):
         method to test delete users
         """
         self.user.saveUser()
-        test_user = User("Ray", "12345678")  # new contact
+        test_user = User("Victor", "gitz254") 
         test_user.saveUser()
 
         self.user.deleteUser()
@@ -60,19 +58,19 @@ class TestUser(unittest.TestCase):
 class TestCredentials(unittest.TestCase):
     def setUp(self):
         """
-        define the constructor
+        Method to define the constructor
         """
-        self.cred = Credentials("Twitter", "@prestonblazer", "press123")
+        self.cred = Credentials("Instagram", "@nyambucindy", "fox12345")
 
     def test_init(self):
         """
         make sure the credential is well initialized
         """
-        self.assertEqual(self.cred.account, "Twitter")
-        self.assertEqual(self.cred.username, "@prestonblazer")
-        self.assertEqual(self.cred.password, "press123")
+        self.assertEqual(self.cred.account, "Instagram")
+        self.assertEqual(self.cred.username, "@nyambucindy")
+        self.assertEqual(self.cred.password, "fox12345")
 
-    def tearDown(parameter_list):
+    def tearDown(list):
         """
         clear up during each test
         """
@@ -83,7 +81,7 @@ class TestCredentials(unittest.TestCase):
         test for multiple credentials
         """
         self.cred.saveCredential()
-        test_cred = Credentials("Twitter", "@prestonblazer", "press123") 
+        test_cred = Credentials("Instagram", "@nyambucindy", "fox12345") 
         test_cred.saveCredential()
 
         self.assertEqual(len(Credentials.credentials), 2)
@@ -94,7 +92,7 @@ class TestCredentials(unittest.TestCase):
         
         """
         self.cred.saveCredential()
-        test_cred = Credentials("Twitter", "@prestonblazer", "press123") 
+        test_cred = Credentials("Instagram", "@nyambucindy", "fox12345") 
         test_cred.saveCredential()
 
         self.cred.deleteCredential()

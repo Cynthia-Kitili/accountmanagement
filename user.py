@@ -1,36 +1,6 @@
 import pyperclip
 import random
 import string
-         
-# class User:
-#     """
-#     Create User class that generates new instances of a user.
-#     """
-#     user_list = []
-
-#     def __init__(self, username, password):
-#         """
-#         method that defines the properties of a user.
-#         """
-#         self.username = username
-#         self.password = password
-
-#     def save_user(self):
-#         """
-#         A method that saves a new user instace into the user list
-#         """
-#         User.user_list.append(self)
-    
-
-#     @classmethod
-#     def display_user(cls):
-#         return cls.user_list
-
-#     def delete_user(self):
-#         '''
-#         delete_account method deletes a  saved account from the list
-#         '''
-#         User.user_list.remove(self)
 
 class User:
     """
@@ -46,7 +16,7 @@ class User:
 
     def createUser(username, password):
         """
-        method to create new user account
+        Method that is used to create new user account
         """
         newUser = User(username, password)
         return newUser
@@ -55,11 +25,11 @@ class User:
         """
         method that allows a user to log in after providing credentials
         """
-        print(" Successfully Logged in")
+        print("You have Successfully Logged in!!")
 
     def saveUser(self):
         """
-        method that save user to the list
+        Method that saves a user to the list
         """
         User.userList.append(self)
 
@@ -81,7 +51,7 @@ if __name__ == "__main__":
 
 class Credentials():
     """
-    Method to create new credentials
+    Method to create new user credentials
     """
     credentials = []
 
@@ -110,20 +80,20 @@ class Credentials():
 
     def searchCredential(account):
         """
-        method that searches a new credential
+        Method that searches for credentials
         """
         if Credentials.credentials:
             for credential in Credentials.credentials:
                 if credential.account == account:
                     return credential
-            print("No such account")
+            print(" There is no account with those credentials")
 
         else:
-            print("Credentials not saved")
+            print("Credentials have not been saved")
 
     def displayCredential():
         """
-        methods to display saved credentials
+        Method that displays saved credentials
         """
         if (len(Credentials.credentials) > 0):
 
@@ -132,21 +102,21 @@ class Credentials():
     @classmethod
     def credentialExist(self, account):
         """
-        method that checks if credentials exists
+        Method that checks if credentials exists
         """
 
         if Credentials.credentials:
             for credential in Credentials.credentials:
                 if credential.account == account:
                     return True
-            print("No such account")
+            print("Account doesn't exist")
 
         else:
-            print("Not saved")
+            print("Credentials Not saved")
 
     def deleteCredential(account):
         """
-        method that deletes credential
+        Method that deletes credential
         """
         for credential in Credentials.credentials:
             if credential.username == account:
@@ -154,7 +124,7 @@ class Credentials():
 
     def passwordGenerate(stringLength=8):
         """
-        method that generate a random password
+        Method that generate a random password
         """
         password = string.ascii_lowercase + string.ascii_uppercase + "~!@#$%;:^&*"
         return ''.join(random.choice(password) for i in range(int(stringLength)))
@@ -162,49 +132,51 @@ class Credentials():
 if __name__ == "__main__":
     
     isTrue = True
-    print("Welcome to password Locker.An app to manage and generate passwords.")
+    print("What is your name?")
+    name= input()
+    print(f"Hello {name} Welcome to password manager.An application that manages and generate passwords.")
     while isTrue == True:
         print(
-            "Use these short code to proceed:\n\n 1. cc-Create Account\n 2. lg-Login\n 3. ex-Exit")
+            "Use these short code to proceed:\n\n 1. ca-Create Account\n 2. ha-Have an existing Account\n 3. ex-Exit")
         shortCode = input().lower()
 
-        if shortCode == 'cc':
-            print("New Account")
-            print("*"*40)
+        if shortCode == 'ca':
+            print("Create New Account")
+            print("*"*50)
             print("Username")
             username = input()
 
             while True:
                 print(
-                    "1. cp - create own password\n 2. sgp - System generated password")
-                passwordOption = input()
+                    "1. tp - Type your own password\n 2. gp - generate password from system")
+                password = input()
 
-                if passwordOption == 'cp':
-                    print("Your Password")
+                if password == 'tp':
+                    print("Enter your Password:")
                     password = input()
                     break
-                elif passwordOption == 'sgp':
+                elif password == 'gp':
                     password = Credentials.passwordGenerate()
                     break
 
                 else:
-                    print("PasswordOption Invalid")
+                    print("password is Invalid")
 
             createUser = User.createUser(username, password)
             User.saveUser(createUser)
             print("\n")
             print(
-                f"Hi {username} You've sucessfully created you account\n")
-            print(f"Your username is {username} and password is {password}\n")
+                f"Hi {username} Your account has been created sucessfully !\n")
+            print(f"Your username is: {username} \n Your password is: {password}\n")
 
-        elif shortCode == 'lg':
-            print("*"*60)
+        elif shortCode == 'ha':
+            print("*"*100)
             print("Enter your username and password")
-            print("*"*60)
+            print("*"*100)
 
-            print("Username")
+            print("Enter Username:")
             username = input()
-            print("Password")
+            print("Enter Password:")
             password = input()
 
             for user in User.userList:
@@ -212,65 +184,65 @@ if __name__ == "__main__":
                     if user.password == password:
                         print(user.login())
                     else:
-                        print("password invalid")
+                        print("password enterd is invalid")
                         break
                 else:
-                    print("username Invalid")
+                    print("username enetered is  Invalid")
                     break
 
             break
 
         elif shortCode == 'ex':
 
-            print("Bye. Nice time.")
+            print("Thank you for using this application.")
             break
 
         else:
-            print("Invalid shortcode\n")
+            print("Invalid code\n")
 
     while True:
-        print("Want to proceed?\n\n Use these shortcodes to proceed\n 1. sc - Save new Credential \n 2. ds - Display existing Credential\n 3. fc - Find a credential \n 4. dc -  Delete an existing Credential \n 5. ex - Exit")
+        print("If you would like to proceed use the shortcodes below\n 1. sc - Save Credential \n 2. dc - Display Existing Credential\n 3. fc - Find credential \n 4. del -  Delete an existing Credential \n 5. ex - Exit")
 
         shortCode = input().lower()
 
         if shortCode == 'sc':
-            print("New Credential Account")
-            print("*"*60)
+            print("Enter Your New Credential Account:")
+            print("*"*100)
             print("\n")
 
-            print("Account Name e.g Twitter")
+            print("Enter Account Name e.g Instagram:")
             account = input()
 
-            print("Account UserName")
+            print("Enter Account UserName:")
             username = input()
 
             while True:
                 print(
-                    "1. cp - create own password?\n 2. sgp - System generated passwords")
+                    "1. tp - type your own password?\n 2. gp -generate password from system")
 
-                PasswordOption = input().lower()
+                password = input().lower()
 
-                if PasswordOption == 'cp':
-                    print("Account Password :")
+                if password == 'tp':
+                    print("Type Account Password :")
                     password = input()
                     break
-                elif PasswordOption == 'sg':
+                elif password == 'gp':
                     password = Credentials.passwordGenerate()
                     break
 
                 else:
-                    print("Password Invalid")
+                    print("Password Entered is Invalid")
 
-            newC = Credentials.createCredential(
+            newCredential = Credentials.createCredential(
                 account, username, password)
-            Credentials.saveCredential(newC)
+            Credentials.saveCredential(newCredential)
             print("\n")
-            print("Your Account Credentials saved!")
+            print("Your Account Credentials have been saved!")
             print("\n")
 
-        elif shortCode == 'ds':
+        elif shortCode == 'dc':
             if Credentials.displayCredential():
-                print("List of your credentials:\n")
+                print(" Here is a List of your credentials:\n")
                 for credential in Credentials.credentials:
                     account = credential.account
                     accountuser = credential.username
@@ -279,10 +251,10 @@ if __name__ == "__main__":
                         f"Account Name : {account}\n Account Username : {accountuser}\n Account Password: {accountpassword}\n")
 
             else:
-                print("You do not have saved credentials\n")
+                print("You do not have any saved credentials\n")
 
         elif shortCode == 'fc':
-            print("Account name: ")
+            print("Enter Account name: ")
             Account = input()
             if Credentials.credentialExist(Account):
                 searchAccount = Credentials.searchCredential(Account)
@@ -290,21 +262,21 @@ if __name__ == "__main__":
                     f"Account name: {searchAccount.account}\n Account Username: {searchAccount.username}\n Account Password : {searchAccount.password}")
 
             else:
-                print("No such account name!\n")
+                print("account name doesn't exist!\n")
 
-        elif shortCode == 'dc':
-            print("delete account?")
+        elif shortCode == 'del':
+            print("Would you like to delete this account?")
             Account = input()
             if Credentials.credentialExist(Account):
                 Credentials.deleteCredential(Account)
-                print("Account Successfully deleted")
+                print("Account has been Successfully deleted")
 
             else:
-                print("No such account name")
+                print("account name doesn't exist")
 
         elif shortCode == 'ex':
-            print("Bye. Nice time")
+            print("Thank you for using this application.")
             isTrue = False
 
         else:
-            print("invalid short code")
+            print("invalid code")
