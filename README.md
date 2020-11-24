@@ -1,3 +1,59 @@
+# accountmanagement
+The aim of this project is to access accounts or create new accounts. The application can store all passwords and it can generate new passwords or enable you to type in your own password. It also saves all your account details.
+* [About The Project](#project-info)
+    * [Built With](#built-info)
+* [Getting Started](#start-info)
+    * [Prerequisites](#prerequisites-info)
+    * [Installation](#installation-info)
+* [Usage] (#usage-info)
+* [Contributing](#contributing-info)
+* [License](#license-info)
+* [Contact](#contact-info)
+* [Acknowledgements](#acknowledgements-info)
+
+## About The Project
+The aim of this project is to access accounts or create new accounts. The application can store all passwords and it can generate new passwords or enable you to type in your own password. It also saves all your account details.
+### Built With
+The frameworks used in creating this website are:
+* [PYTHON ](https://Python.com)
+
+
+## Getting Started
+Below is a set of instructions on how to get local file copy up and running:
+### Prerequisites
+In order to use the website you need to install:
+* Python
+
+### Installation
+In order to use the file locally:
+1. Create a github account [https://github.com/](https://github.com/)
+2. Open  https://github.com/Cynthia-Kitili/accountmanagement.git.
+3. Clone the repo
+```sh
+git clone Open  https://github.com/Cynthia-Kitili/accountmanagement.git
+```
+4. git pull origin master
+
+## Usage
+This website can be used as a source of information and you can even post your stories.
+
+## Roadmap
+See the [open issues](https://github.com/Cynthia-Kitili/accountmanagement/issues) for a list of proposed features (and known issues).
+
+## Contributing
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are
+* * greatly appreciated **.
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/contribution`)
+3. Commit your Changes (`git commit -m 'Add some contribution'`)
+4. Push to the Branch (`git push origin feature/contribution`)
+5. Open a Pull Request
+
+## Acknowledgements
+* [Choose an Open Source License](https://choosealicense.com)
+* [GitHub Pages](https://pages.github.com)
+* [Python Documentation](https://pythondocumntation.com)
+
 ## License
 
 MIT License

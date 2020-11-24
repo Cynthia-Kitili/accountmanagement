@@ -122,7 +122,6 @@ class Credentials():
         """
         Credentials.credentials_list.remove(self)
     
-    @classmethod
     def find_credential(cls, account):
         """
         Method that takes in a account_name and returns a credential that matches that account_name.
@@ -130,12 +129,11 @@ class Credentials():
         for credential in cls.credentials_list:
             if credential.account == account:
                 return credential
-    @classmethod
+
     def copy_password(cls,account):
         found_credentials = Credentials.find_credential(account)
         pyperclip.copy(found_credentials.password)
 
-    @classmethod
     def if_credential_exist(cls, account):
         """
         Method that checks if a credential exists from the credential list and returns true or false depending if the credential exists.
@@ -144,7 +142,7 @@ class Credentials():
             if credential.account == account:
                 return True
         return False
-    @classmethod
+   
     def display_credentials(cls):
         """
         Method that returns all items in the credentials list
