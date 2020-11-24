@@ -137,7 +137,7 @@ if __name__ == "__main__":
     print(f"Hello {name} Welcome to password manager.An application that manages and generate passwords.")
     while isTrue == True:
         print(
-            "Use these short code to proceed:\n\n 1. ca-Create Account\n 2. ha-Have an existing Account\n 3. ex-Exit")
+            "Use these short codes to proceed:\n\n 1. ca-Create Account\n 2. ha-Have an existing Account\n")
         shortCode = input().lower()
 
         if shortCode == 'ca':
@@ -191,15 +191,6 @@ if __name__ == "__main__":
                     break
 
             break
-
-        elif shortCode == 'ex':
-
-            print("Thank you for using this application.")
-            break
-
-        else:
-            print("Invalid code\n")
-
     while True:
         print("If you would like to proceed use the shortcodes below\n 1. sc - Save Credential \n 2. dc - Display Existing Credential\n 3. fc - Find credential \n 4. del -  Delete an existing Credential \n 5. ex - Exit")
 
@@ -265,7 +256,7 @@ if __name__ == "__main__":
                 print("account name doesn't exist!\n")
 
         elif shortCode == 'del':
-            print("Would you like to delete this account?")
+            print("Enter account that you would like to delete this account?")
             Account = input()
             if Credentials.credentialExist(Account):
                 Credentials.deleteCredential(Account)
@@ -276,7 +267,7 @@ if __name__ == "__main__":
 
         elif shortCode == 'ex':
             print("Thank you for using this application.")
-            isTrue = False
+            break
 
         else:
             print("invalid code")
